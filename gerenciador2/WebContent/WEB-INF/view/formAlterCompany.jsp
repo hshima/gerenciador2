@@ -8,6 +8,7 @@
 <title>Alter Company Form</title>
 </head>
 <body>
+	Logged user: ${logedUser.login} <c:import url="partial-logout.jsp"></c:import>
 	<form action="${edit}" method="post">
 		<table border=1>
 			<thead>Form of company changes</thead>

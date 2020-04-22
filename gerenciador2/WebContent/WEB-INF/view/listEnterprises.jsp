@@ -9,6 +9,7 @@
 		<title>Insert title here</title>
 	</head>
 	<body>
+		Logged user: ${logedUser.login} <c:import url="partial-logout.jsp"></c:import>
 		<table border=1>
 			<thead>
 					List of Enterprises

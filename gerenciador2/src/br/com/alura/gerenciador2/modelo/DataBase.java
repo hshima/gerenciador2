@@ -19,14 +19,14 @@ public class DataBase {
 		DataBase.companies.add(company);
 		DataBase.companies.add(company2);
 		
-//		User u1 = new User("Me", "123456");
-//		User u2 = new User("Nico", "123456");
-		User u1 = new User();
-		u1.setLogin("Me");
-		u1.setPassword("123456");
-		User u2 = new User();
-		u2.setLogin("Nico");
-		u2.setPassword("123456");
+		User u1 = new User("Me", "123456");
+		User u2 = new User("Nico", "123456");
+//		User u1 = new User();
+//		u1.setLogin("Me");
+//		u1.setPassword("123456");
+//		User u2 = new User();
+//		u2.setLogin("Nico");
+//		u2.setPassword("123456");
 		DataBase.userList.add(u1);
 		DataBase.userList.add(u2);
 		

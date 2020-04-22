@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import br.com.alura.gerenciador2.modelo.DataBase;
 import br.com.alura.gerenciador2.modelo.User;
@@ -19,7 +20,10 @@ public class Login implements Action{
 		
 		DataBase db = new DataBase();
 		User user = db.userExists(login, password);
+		
 		if(user != null) {
+			HttpSession session = request.getSession();
+			session.setAttribute("logedUser", user);
 			return "redirect:entry?action=ListEnterprises";
 		} else {
 			return "redirect:entry?action=LoginForm";	

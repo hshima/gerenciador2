@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	Logged user: ${logedUser.login} <c:import url="partial-logout.jsp"></c:import>
 	<form action=${linkNewEnterprise } method="post">
 		<table>
 			<tbody>
