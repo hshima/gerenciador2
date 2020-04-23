@@ -1,4 +1,4 @@
-package br.com.alura.gerenciador2.servlet;
+package br.com.alura.gerenciador2.acao;
 
 import java.io.IOException;
 
@@ -10,8 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import br.com.alura.gerenciador2.acao.Action;
-
+@WebServlet("/entry")
 public class UnicaEntradaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -20,7 +19,14 @@ public class UnicaEntradaServlet extends HttpServlet {
 		//Captures URL parameter
 		String paramAction = request.getParameter("action");
 		
-
+		//Validates whether user is logged and is trying to access a allowed page
+		HttpSession session = request.getSession();
+		boolean notLogedUser = (session.getAttribute("logedUser") == null);
+		boolean isProtectedAction = !(paramAction.equals("Login") || paramAction.equals("LoginForm"));
+		if(isProtectedAction && notLogedUser) {
+			response.sendRedirect("entry?action=LoginForm");
+			return;	
+		}
 
 		//Instantiates a Class based in the param argument 
 		String nameClass = "br.com.alura.gerenciador2.acao." + paramAction;
